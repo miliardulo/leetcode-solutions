@@ -7,7 +7,9 @@ class Solution:
             if c in left:
                 stk.append(c)
                 continue
-            if len(stk)>0 and stk[-1]==left[right.index(c)]:
+            if len(stk)==0:
+                return False
+            if stk[-1]==left[right.index(c)]:
                 stk.pop()
                 continue
             return False

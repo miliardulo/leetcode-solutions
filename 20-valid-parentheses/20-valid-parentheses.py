@@ -1,17 +1,14 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         stk:list[str] = list()
-        left:tuple[str] = ("(","{","[")
-        right:tuple[str] = (')','}',']')
+        pair:dict[str,str] = {'(':')','[':']','{':'}'}
         for c in s:
-            if c in left:
+            if c in pair.keys():
                 stk.append(c)
                 continue
-            if len(stk)==0:
+            if len(stk)==0 or c!=pair[stk[-1]]:
                 return False
-            if stk[-1]==left[right.index(c)]:
-                stk.pop()
-                continue
-            return False
+            stk.pop()
         return not stk
+        
             

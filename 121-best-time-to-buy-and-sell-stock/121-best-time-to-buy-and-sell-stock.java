@@ -1,10 +1,10 @@
 class Solution {
     public int maxProfit(int[] prices) {
-        Queue<Integer> pq = new PriorityQueue<>();
         int mpf = 0;
-        for(int i: prices){
-            if(!pq.isEmpty() && i-pq.peek()>mpf) mpf=i-pq.peek();
-            pq.add(i);
+        int prev = prices[0];        
+        for(int i=1; i<prices.length; i++){
+            if(prices[i]<prev) prev = prices[i];
+            else mpf = Math.max(mpf,prices[i]-prev);
         }
         return mpf;
     }

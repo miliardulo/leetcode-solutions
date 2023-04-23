@@ -3,7 +3,7 @@ class Solution:
         front:int = 0
         back:int = len(nums)-1
         while front<=back:
-            mid:int = front + int((back-front)/2)
+            mid:int = front + (back-front)//2
             x:int = nums[mid]
             if x==target:
                 return mid

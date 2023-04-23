@@ -16,8 +16,10 @@ class Solution:
         curr: Optional[ListNode] = list1
         while list2:
             if not curr.next or list2.val<curr.next.val:
-                curr.next = ListNode(list2.val, curr.next)
-                list2=list2.next
+                tmp:Optional[ListNode] = list2.next
+                list2.next = curr.next
+                curr.next = list2
+                list2 = tmp
                 continue
             curr=curr.next
         return list1

@@ -4,12 +4,11 @@ class Solution:
         back:int = len(nums)-1
         while front<=back:
             mid:int = front + (back-front)//2
-            x:int = nums[mid]
-            if x==target:
+            if nums[mid]==target:
                 return mid
-            if x<target:
+            if nums[mid]<target:
                 front = mid+1
-                continue
-            back=mid-1
+            else:
+                back=mid-1
         return -1
             
